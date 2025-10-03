@@ -1,5 +1,5 @@
-# Use OpenJDK 21 (matching your project)
-FROM openjdk:21-jdk-alpine
+# Use correct OpenJDK 21 image
+FROM eclipse-temurin:21-jdk-alpine
 
 # Set working directory
 WORKDIR /app
@@ -29,4 +29,5 @@ EXPOSE 8080
 
 # Run the application
 CMD ["java", "-jar", "target/logistics-management-system-1.0.0.jar"]
+
 
