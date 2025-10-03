@@ -1,33 +1,22 @@
-# Use correct OpenJDK 21 image
 FROM eclipse-temurin:21-jdk-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper and pom.xml from backend folder
-COPY backend/mvnw .
-COPY backend/.mvn .mvn
-COPY backend/pom.xml .
+# Install Maven
+RUN apk add --no-cache maven
 
-# Make Maven wrapper executable
-RUN chmod +x ./mvnw
+# Copy backend directory
+COPY backend/ ./
 
-# Download dependencies
-RUN ./mvnw dependency:go-offline -B
-
-# Copy source code from backend folder
-COPY backend/src src
-
-# Copy frontend files from root to static resources
-COPY frontend/ src/main/resources/static/
-
-# Build the application
-RUN ./mvnw clean package -DskipTests
+# Build application
+RUN mvn clean package -DskipTests
 
 # Expose port
 EXPOSE 8080
 
-# Run the application
+# Run application
 CMD ["java", "-jar", "target/logistics-management-system-1.0.0.jar"]
+
+
 
 
