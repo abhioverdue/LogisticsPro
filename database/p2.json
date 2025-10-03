@@ -1,0 +1,21 @@
+{
+  "_id": "product_tshirt",
+  "name": "Organic Cotton T-Shirt", 
+  "description": "100% organic cotton premium t-shirt",
+  "category": "Clothing",
+  "sku": "OCT-001",
+  "weight": 0.2,
+  "dimensions": {
+    "length": 30.0,
+    "width": 25.0,
+    "height": 2.0
+  },
+  "value": 29.99,
+  "imageUrl": "https://example.com/tshirt.jpg",
+  "isActive": true,
+  "tags": ["organic", "cotton", "clothing"],
+  "sellerId": "seller123",
+  "status": "AVAILABLE",
+  "createdAt": "2025-09-20T10:00:00",
+  "updatedAt": "2025-09-20T10:00:00"
+}

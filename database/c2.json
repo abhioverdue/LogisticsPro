@@ -1,0 +1,14 @@
+{
+  "_id": "courier_quickship",
+  "name": "QuickShip Pro",
+  "serviceType": "STANDARD",
+  "pricing": {
+    "baseRate": 10.00,
+    "perKgRate": 2.50,
+    "expressMultiplier": 1.3
+  },
+  "coverage": ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"],
+  "avgDeliveryTime": 48,
+  "rating": 4.5,
+  "isActive": true
+}

@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: logistics-management-system
+  
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/logistics_db
+      auto-index-creation: true
+  
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: abhinayaak5@gmail.com
+    password: password123
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    com.logistics: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.mail: DEBUG
+
+app:
+  jwtSecret: mySecretLogisticsKey2025ThisIsAVeryLongSecretKeyForJWTThatIs256BitsLongToEnsureSecurityAndCompliance
+  jwtExpirationMs: 86400000 # 24 hours
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

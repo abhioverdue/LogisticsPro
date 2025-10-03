@@ -1,0 +1,65 @@
+{
+  "_id": "order_demo_002",
+  "orderNumber": "ORD-DEMO002",
+  "sellerId": "seller123", 
+  "buyerId": "buyer123",
+  "courierId": "courier123",
+  "product": {
+    "name": "Organic Cotton T-Shirt",
+    "category": "Clothing",
+    "weight": 0.2,
+    "dimensions": {
+      "length": 30.0,
+      "width": 25.0,
+      "height": 2.0
+    },
+    "value": 29.99
+  },
+  "shipping": {
+    "from": {
+      "street": "123 Business Ave",
+      "city": "New York",
+      "state": "NY", 
+      "postalCode": "10001",
+      "country": "USA",
+      "latitude": 40.7589,
+      "longitude": -73.9851
+    },
+    "to": {
+      "street": "789 Buyer Lane",
+      "city": "Chicago",
+      "state": "IL",
+      "postalCode": "60601",
+      "country": "USA",
+      "latitude": 41.8781,
+      "longitude": -87.6298
+    },
+    "courierService": "QuickShip Pro",
+    "trackingNumber": "TRK-QSP67890", 
+    "estimatedDelivery": "2025-10-06T15:42:00"
+  },
+  "status": "DELIVERED",
+  "timeline": [
+    {
+      "status": "PENDING",
+      "description": "Order created and pending confirmation",
+      "location": "New York, NY",
+      "timestamp": "2025-09-28T10:00:00",
+      "updatedBy": "System"
+    },
+    {
+      "status": "DELIVERED",
+      "description": "Package delivered successfully",
+      "location": "Chicago, IL", 
+      "timestamp": "2025-10-02T14:30:00",
+      "updatedBy": "QuickShip Pro"
+    }
+  ],
+  "pricing": {
+    "productValue": 29.99,
+    "shippingCost": 8.40,
+    "total": 38.39
+  },
+  "createdAt": "2025-09-28T10:00:00",
+  "updatedAt": "2025-10-02T14:30:00"
+}

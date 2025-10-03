@@ -1,0 +1,14 @@
+{
+  "_id": "courier_fasttrack",
+  "name": "FastTrack Express",
+  "serviceType": "EXPRESS",
+  "pricing": {
+    "baseRate": 15.00,
+    "perKgRate": 3.50,
+    "expressMultiplier": 1.5
+  },
+  "coverage": ["New York", "Los Angeles", "Chicago", "Houston"],
+  "avgDeliveryTime": 24,
+  "rating": 4.8,
+  "isActive": true
+}

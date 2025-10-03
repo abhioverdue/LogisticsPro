@@ -1,0 +1,26 @@
+{
+  "_id": "buyer123",
+  "email": "buyer@example.com",
+  "password": "$2a$10$N9qo8uLOickgx2ZMRJoYeOeIiDlqpYP2fQRQ7i2xwXq2ysZ1gK8q6",
+  "roles": [
+    {
+      "_id": "role_buyer",
+      "name": "ROLE_BUYER"
+    }
+  ],
+  "profile": {
+    "name": "Jane Buyer",
+    "phone": "+1-555-0202",
+    "address": {
+      "street": "456 Consumer St",
+      "city": "Los Angeles", 
+      "state": "CA",
+      "postalCode": "90001",
+      "country": "USA",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  "createdAt": "2025-09-20T14:30:00",
+  "isActive": true
+}

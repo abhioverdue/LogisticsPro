@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Management System</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <!-- Leaflet.js for OpenStreetMap -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LogisticsPro</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#tracking" class="nav-link">Track Order</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Professional Logistics Management</h1>
+                    <p>Streamline your shipping operations with real-time tracking, multi-courier integration, and comprehensive order management.</p>
+                    <div class="hero-actions">
+                        <a href="login.html" class="btn btn-primary">Get Started</a>
+                        <a href="#tracking" class="btn btn-secondary">Track Order</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📦</div>
+                        <h3>Order Management</h3>
+                        <p>Complete order lifecycle management from creation to delivery</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚚</div>
+                        <h3>Multi-Courier Integration</h3>
+                        <p>Choose from multiple courier services with competitive pricing</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📍</div>
+                        <h3>Real-time Tracking</h3>
+                        <p>Live tracking with OSM integration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tracking" class="tracking-section">
+            <div class="container">
+                <div class="tracking-widget">
+                    <h2>Track Your Order</h2>
+                    <div class="tracking-form">
+                        <input type="text" id="trackingInput" placeholder="Enter tracking number" class="form-input">
+                        <button onclick="trackOrder()" class="btn btn-primary">Track</button>
+                    </div>
+                    <div id="trackingResult" class="tracking-result"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 LogisticsPro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/tracking.js"></script>
+</body>
+</html>
+

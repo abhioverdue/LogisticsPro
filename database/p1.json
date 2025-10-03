@@ -1,0 +1,21 @@
+{
+  "_id": "product_headphones",
+  "name": "Wireless Bluetooth Headphones",
+  "description": "Premium wireless headphones with noise cancellation",
+  "category": "Electronics",
+  "sku": "WBH-001",
+  "weight": 0.5,
+  "dimensions": {
+    "length": 20.0,
+    "width": 18.0,
+    "height": 8.0
+  },
+  "value": 149.99,
+  "imageUrl": "https://example.com/headphones.jpg",
+  "isActive": true,
+  "tags": ["wireless", "bluetooth", "noise-cancelling"],
+  "sellerId": "seller123",
+  "status": "AVAILABLE",
+  "createdAt": "2025-09-25T10:00:00",
+  "updatedAt": "2025-09-25T10:00:00"
+}

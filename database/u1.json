@@ -1,0 +1,27 @@
+{
+  "_id": "seller123",
+  "email": "seller@example.com",
+  "password": "$2a$10$N9qo8uLOickgx2ZMRJoYeOeIiDlqpYP2fQRQ7i2xwXq2ysZ1gK8q6",
+  "roles": [
+    {
+      "_id": "role_seller",
+      "name": "ROLE_SELLER"
+    }
+  ],
+  "profile": {
+    "name": "John Seller",
+    "phone": "+1-555-0101",
+    "company": "TechGadgets Inc",
+    "address": {
+      "street": "123 Business Ave",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001",
+      "country": "USA",
+      "latitude": 40.7589,
+      "longitude": -73.9851
+    }
+  },
+  "createdAt": "2025-09-15T10:00:00",
+  "isActive": true
+}

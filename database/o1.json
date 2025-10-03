@@ -1,0 +1,72 @@
+{
+  "_id": "order_demo_001",
+  "orderNumber": "ORD-DEMO001",
+  "sellerId": "seller123",
+  "buyerId": "buyer123",
+  "courierId": "courier123",
+  "product": {
+    "name": "Wireless Bluetooth Headphones",
+    "category": "Electronics",
+    "weight": 0.5,
+    "dimensions": {
+      "length": 20.0,
+      "width": 18.0,
+      "height": 8.0
+    },
+    "value": 149.99
+  },
+  "shipping": {
+    "from": {
+      "street": "123 Business Ave",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001",
+      "country": "USA",
+      "latitude": 40.7589,
+      "longitude": -73.9851
+    },
+    "to": {
+      "street": "456 Consumer St", 
+      "city": "Los Angeles",
+      "state": "CA",
+      "postalCode": "90001",
+      "country": "USA",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "courierService": "FastTrack Express",
+    "trackingNumber": "TRK-FTE12345",
+    "estimatedDelivery": "2025-10-05T15:42:00"
+  },
+  "status": "IN_TRANSIT",
+  "timeline": [
+    {
+      "status": "PENDING",
+      "description": "Order created and pending confirmation",
+      "location": "New York, NY",
+      "timestamp": "2025-09-30T10:00:00",
+      "updatedBy": "System"
+    },
+    {
+      "status": "CONFIRMED", 
+      "description": "Order confirmed and ready for pickup",
+      "location": "New York, NY",
+      "timestamp": "2025-10-01T09:00:00",
+      "updatedBy": "John Seller"
+    },
+    {
+      "status": "IN_TRANSIT",
+      "description": "Package in transit to destination",
+      "location": "Denver, CO",
+      "timestamp": "2025-10-03T06:00:00",
+      "updatedBy": "FastTrack Express"
+    }
+  ],
+  "pricing": {
+    "productValue": 149.99,
+    "shippingCost": 16.75,
+    "total": 166.74
+  },
+  "createdAt": "2025-09-30T10:00:00",
+  "updatedAt": "2025-10-03T06:00:00"
+}

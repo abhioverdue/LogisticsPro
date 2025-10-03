@@ -1,0 +1,18 @@
+{
+  "_id": "courier123",
+  "email": "courier@example.com",
+  "password": "$2a$10$N9qo8uLOickgx2ZMRJoYeOeIiDlqpYP2fQRQ7i2xwXq2ysZ1gK8q6",
+  "roles": [
+    {
+      "_id": "role_courier",
+      "name": "ROLE_COURIER"
+    }
+  ],
+  "profile": {
+    "name": "Mike Courier",
+    "phone": "+1-555-0303",
+    "company": "FastTrack Express"
+  },
+  "createdAt": "2025-09-10T09:00:00",
+  "isActive": true
+}

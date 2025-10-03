@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Dashboard - LogisticsPro</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="../js/dashboard.js"></script>
+    <!-- Leaflet.js for OpenStreetMap -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="dashboard-nav">
+                    <div class="dashboard-brand">LogisticsPro - Courier</div>
+                    <div class="user-info">
+                        <div class="user-avatar" id="userAvatar">C</div>
+                        <span id="userName">Courier</span>
+                        <button class="logout-btn" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="container">
+                <!-- Statistics -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="assignedOrders">0</div>
+                        <div class="stat-label">Assigned Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="inTransitOrders">0</div>
+                        <div class="stat-label">In Transit</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="deliveredToday">0</div>
+                        <div class="stat-label">Delivered Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="avgDeliveryTime">0h</div>
+                        <div class="stat-label">Avg Delivery Time</div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-grid" style="margin-bottom: 2rem;">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Quick Update</h3>
+                            <span class="card-icon">⚡</span>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" id="quickOrderId" placeholder="Order ID or Tracking #" class="form-input">
+                            <button onclick="quickUpdateStatus()" class="btn btn-primary">Update</button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Today's Route</h3>
+                            <span class="card-icon">🗺️</span>
+                        </div>
+                        <button onclick="viewRoute()" class="btn btn-secondary">View Route</button>
+                        <button onclick="optimizeRoute()" class="btn btn-primary">Optimize Route</button>
+                    </div>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="table-container">
+                    <div class="card-header">
+                        <h3 class="card-title">Assigned Orders</h3>
+                        <button onclick="loadOrders()" class="btn btn-secondary">Refresh</button>
+                    </div>
+                    <table class="table" id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Product</th>
+                                <th>From → To</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Est. Delivery</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Update Status Modal -->
+    <div id="updateStatusModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Update Order Status</h3>
+                <button class="close-btn" onclick="closeUpdateStatusModal()">&times;</button>
+            </div>
+            
+            <form id="updateStatusForm">
+                <input type="hidden" id="updateOrderId">
+                
+                <div class="form-group">
+                    <label>Order</label>
+                    <input type="text" id="updateOrderNumber" readonly class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label>New Status</label>
+                    <select name="status" required class="form-select">
+                        <option value="">Select Status</option>
+                        <option value="CONFIRMED">Confirmed</option>
+                        <option value="PICKED_UP">Picked Up</option>
+                        <option value="IN_TRANSIT">In Transit</option>
+                        <option value="OUT_FOR_DELIVERY">Out for Delivery</option>
+                        <option value="DELIVERED">Delivered</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" name="location" class="form-input" placeholder="Current location">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" rows="3" required class="form-input" placeholder="Status update description..."></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" onclick="closeUpdateStatusModal()" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Status</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/courier.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: logistics-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: logistics_db
+    volumes:
+      - mongodb_data:/data/db
+      - ./database/init-data.js:/docker-entrypoint-initdb.d/init-data.js:ro
+
+  logistics-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: logistics-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      MONGODB_URI: mongodb://admin:password123@mongodb:27017/logistics_db?authSource=admin
+      JWT_SECRET: mySecretKey123456789012345678901234567890
+      MAIL_HOST: smtp.gmail.com
+      MAIL_PORT: 587
+    depends_on:
+      - mongodb
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  mongodb_data:
