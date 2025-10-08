@@ -10,7 +10,7 @@ A full-stack logistics management system built with Spring Boot and Vanilla Java
 - JWT-based authentication with BCrypt password hashing
 - Role-based access control (Buyer, Seller, Courier)
 - Secure token management and session handling
-- User registration with email validation
+- User registration
 
 ### Order Tracking
 - Real-time order tracking with status timeline
@@ -136,6 +136,7 @@ curl http://localhost:8080/api/tracking/public/TRK-FTE12345
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
 
 
 
