@@ -18,7 +18,7 @@ RUN ./mvnw dependency:go-offline -B
 COPY src src
 
 # Copy frontend files to static resources
-COPY ../frontend src/main/resources/static
+COPY src/main/resources/static
 
 # Build application
 RUN ./mvnw clean package -DskipTests
@@ -34,6 +34,7 @@ ENV JAVA_OPTS="-Xmx512m -Xms256m"
 
 # Run application
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar target/logistics-management-system-1.0.0.jar"]
+
 
 
 
