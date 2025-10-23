@@ -24,7 +24,7 @@ COPY backend src
 # If your repo has ../frontend relative to Dockerfile, you can't reference it from the build context.
 # Place frontend build output inside the repo (e.g., ./frontend-dist) and copy that instead:
 # COPY frontend-dist/ src/main/resources/static/
-
+RUN cd backend
 # Build the application
 RUN ./mvnw -B clean package -DskipTests
 
@@ -47,5 +47,6 @@ ENV JAVA_OPTS="-Xmx512m -Xms256m"
 
 # Entrypoint: pass Spring env vars from docker-compose
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
+
 
 
