@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mongodb:
@@ -14,6 +14,12 @@ services:
     volumes:
       - mongodb_data:/data/db
       - ./database/init-data.js:/docker-entrypoint-initdb.d/init-data.js:ro
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ ping: 1 })"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 
   logistics-app:
     build:
@@ -24,15 +30,21 @@ services:
     ports:
       - "8080:8080"
     environment:
+      # Spring profile and DB connection inside Compose network
       SPRING_PROFILES_ACTIVE: prod
       MONGODB_URI: mongodb://admin:password123@mongodb:27017/logistics_db?authSource=admin
-      JWT_SECRET: mySecretKey123456789012345678901234567890
+      # If your app reads PORT from env, keep it consistent
+      PORT: 8080
+      # App secrets and mail defaults (override in production as needed)
+      APP_JWT_SECRET: mySecretKey123456789012345678901234567890
       MAIL_HOST: smtp.gmail.com
       MAIL_PORT: 587
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     volumes:
       - ./logs:/app/logs
 
 volumes:
   mongodb_data:
+
