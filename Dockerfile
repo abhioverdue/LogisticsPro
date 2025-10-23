@@ -18,7 +18,7 @@ RUN chmod +x ./mvnw
 RUN ./mvnw -B dependency:go-offline
 
 # Copy source
-COPY src src
+COPY backend src
 
 # Optional: include frontend into static if required by your project structure
 # If your repo has ../frontend relative to Dockerfile, you can't reference it from the build context.
@@ -47,4 +47,5 @@ ENV JAVA_OPTS="-Xmx512m -Xms256m"
 
 # Entrypoint: pass Spring env vars from docker-compose
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
+
 
